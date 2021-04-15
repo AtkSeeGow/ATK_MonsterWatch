@@ -1,17 +1,19 @@
 // Watch.h
 
+#include <M5StickCPlus.h>
+
 #ifndef _WATCH_h
 #define _WATCH_h
 
 class Watch {
   public:
-    Watch();
-    void Execution(int value);
+    Watch(TFT_eSprite *tftSprite);
+    void Execution();
+    void SyncingTime();
   private:
-    int p1;
-    int p2;
-    int p3;
-    int p4;
+    TFT_eSprite *tftSprite;
+    RTC_TimeTypeDef timeStruct;
+    RTC_DateTypeDef dateStruct;
 };
 
 #endif
