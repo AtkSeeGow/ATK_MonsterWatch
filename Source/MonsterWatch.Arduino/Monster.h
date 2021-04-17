@@ -8,13 +8,17 @@
 class Monster {
   public:
     Monster(TFT_eSprite *tftSprite);
-    void SetAction(int action);
     void Execution();
   private:
     int index;
+    int type;
     int action;
+    float accelX;
+    float accelY;
+    float accelZ;
     TFT_eSprite *tftSprite;
     unsigned long lastExecutionTime;
+    unsigned long lastWalkTime;
 };
 
 #endif
