@@ -217,7 +217,6 @@ void setup() {
   pinMode(GPIO_NUM_36, INPUT);
 #endif // #ifdef WOM_GPIO_DEBUG_TEST
 
-
 #ifdef WOM_ATTACH_ISR
   // set up ISR to trigger on GPIO35
   rtc_gpio_deinit(GPIO_NUM_35);
@@ -227,15 +226,12 @@ void setup() {
   attachInterrupt(GPIO_NUM_35, mpu6886_wake_on_motion_isr, FALLING);
 #endif // #ifdef WOM_ATTACH_ISR
 
-
   //Increment boot number and print it every reboot
   ++bootCount;
-  Serial.println("Boot number: " + String(bootCount));
 
   // set up mpu6886 for low-power operation
   M5.IMU.Init(); // basic init
   mpu6886_wake_on_motion_setup(10);
-
 
   // wait until IMU ISR hasn't triggered for X milliseconds
   while (1) {
